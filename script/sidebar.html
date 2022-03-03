@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>body{box-shadow:0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12)}h3{margin-top:0;margin-bottom:.5rem;font-weight:500;line-height:1.2;font-size:1.75rem;padding-top:3rem;padding-bottom:3rem;color:#fff}.header{background:linear-gradient(40deg,#ffd86f,#fc6262)!important}.header .center{text-align:center}.content{flex:1 1 auto;padding:1.25rem;margin-right:1.5rem}.content .center{text-align:center;margin-left:1.5rem}.mb-0{margin-bottom:0!important}button{line-height:1.5;cursor:pointer;border:0;color:#fff;background-color:#616161;transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;padding:.84rem 2.14rem;border-radius:10em}button:active,button:hover{outline:0;-webkit-box-shadow:0 5px 11px 0 rgba(0,0,0,.18),0 4px 15px 0 rgba(0,0,0,.15);box-shadow:0 5px 11px 0 rgba(0,0,0,.18),0 4px 15px 0 rgba(0,0,0,.15);color:#fff;background-color:#6e6e6e}textarea{border:1px solid #ced4da;outline:0;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out;width:100%;padding:.375rem .75rem;font-size:1rem;line-height:1.5;margin-top:1.5rem;margin-bottom:1.5rem;resize:vertical}textarea:focus{border-bottom:1px solid #4285f4;box-shadow:0 1px 0 0 #4285f4}</style>
+</head>
+<body>
+  <div class="header">
+    <h3 class="center">生成器</h3>
+  </div>
+  <div class="content">
+    <textarea rows="5" placeholder="请输入名称和文件ID"></textarea>
+    <div class="center">
+      <button onclick="image()">图片</button>
+      <button onclick="search()">搜索</button>
+    </div>
+  </div>
+  <script>
+    function image () {
+      let result = []
+      const textarea = document.getElementsByTagName('textarea')[0]
+      const content = textarea.value.match(/.+/g)
+      for (const data of content) {
+        const item = data.split('\t')
+        const [fileName, fileID] = item
+        result += `<div class="item">
+        <div class="cards">
+          <img class="yall_lazy" src="https://dev-coco.github.io/images/loading.jpg" data-src="https://drive.google.com/thumbnail?id=${fileID}">
+        </div>
+        <p class="title"><a href="https://drive.google.com/uc?id=${fileID}&export=download">${fileName}</a></p>
+      </div>\n      `
+      }
+      copy(result.replace(/\n      $/g,'')) 
+      textarea.value = ''
+    }
+
+    function search () {
+      let result = []
+      const textarea = document.getElementsByTagName('textarea')[0]
+      const content = textarea.value.match(/.+/g)
+      for (const data of content) {
+        const item = data.split('\t')
+        const [fileName, fileID] = item
+        result += `{
+    file: "${fileName}",
+    driveId: "${fileID}"
+  }, `
+      }
+      copy(result.replace(/, $/g,'')) 
+      textarea.value = ''
+    }
+    
+    function copy (str) {
+      const el = document.createElement('textarea')
+      el.value = str
+      document.body.appendChild(el)
+      el.select()
+      document.execCommand('copy')
+      document.body.removeChild(el)
+    }
+  </script>
+</body>
+</html>

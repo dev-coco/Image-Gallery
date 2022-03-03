@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Image Gallery</title>
+  <link rel="icon" href="src/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="src/core.css">
+</head>
+<body>
+  <div class="header">
+    <div class="fa fa-bars"></div>
+    <i class="fa fa-image" onclick="hdImages()"></i>
+  </div>
+  <div class="sidebar">
+    <div class="logo">
+      <a>
+        <img src="src/logo.png" style="margin-left:15px">
+      </a>
+      <div class="close-sidebar" data-toggle="close">
+        <i class="fa fa-close"></i>
+      </div>
+    </div>
+    <div class="menu">
+      <ul>
+        <li class="dropdown">
+          <a class="dropdown-toggle">
+            <span class="icon fa fa-folder"></span><span>一级菜单</span>
+          </a>
+          <ul class="submenu">
+            <li><a class="item" id="目录">二级菜单</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle">
+                <span class="icon fa fa-folder-o"></span><span>子菜单</span>
+              </a>
+              <ul class="submenu">
+                <li><a class="item" id="目录">三级菜单</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <!--
+				<li class="dropdown">
+          <a class="dropdown-toggle">
+            <span class="icon fa fa-folder"></span><span>一级菜单</span>
+          </a>
+          <ul class="submenu">
+            <li><a class="item" id="目录">二级菜单</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle">
+                <span class="icon fa fa-folder-o"></span><span>二级菜单</span>
+              </a>
+              <ul class="submenu">
+                <li><a class="item" id="目录">三级菜单</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+				-->
+      </ul>
+    </div>
+  </div>
+  <div style="height: calc(100% - 4.475rem);scrolling:no;margin-top:4.375rem">
+    <iframe src="instruction.html"></iframe>
+  </div>
+  <script src="src/core.js"></script>
+  <script src="src/script.js"></script>
+</body>
+</html>

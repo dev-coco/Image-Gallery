@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Gallery</title>
+	<link rel="stylesheet" href="https://dev-coco.github.io/css/gallery.css">
+  <script src="https://giventofly.github.io/yall/yall.min.js"></script>
+  <script src="https://dev-coco.github.io/js/medium-zoom.min.js"></script>
+  <script>
+    var lazyload = new yall()
+    window.addEventListener('DOMContentLoaded', (e) => {
+      lazyload.run()
+    })
+    function images_zoom () {
+      mediumZoom('img', {
+        margin: 50,
+        background: 'rgba(23, 29, 54, .8)',
+        scrollOffset: 0,
+        metaClick: false
+      })
+    }
+  </script>  
+</head>
+<body>
+  <div class="wrapper">
+    <div class="list">
+      <!-- 在这里放入代码 -->
+    </div>
+  </div>
+  <script>images_zoom()</script>
+</body>
+</html>
