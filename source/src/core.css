@@ -13,6 +13,10 @@
   -moz-osx-font-smoothing: grayscale
 }
 
+.fa-question-circle:before {
+  content: "\f059"
+}
+
 .fa-folder:before {
   content: "\f07b"
 }
@@ -54,7 +58,8 @@ html {
   font-weight: 400;
   min-height: 100%;
   color: #031e23;
-  background: #ecf0f4
+  background: #ecf0f4;
+  overflow-y: hidden;
 }
 
 iframe {
@@ -111,7 +116,8 @@ li {
 }
 
 .fa-bars,
-.fa-image {
+.fa-image,
+.fa-question-circle {
   width: 47px;
   height: 47px;
   font-size: 22px;
@@ -384,4 +390,70 @@ li a:hover {
   width: 100%;
   height: 30px;
   z-index: 1
+}
+
+#select-group,
+#input-name,
+#feedback {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  height: 40px;
+  margin: 25px 0;
+  padding: 5px;
+  font-size: 16px
+}
+
+#feedback {
+  resize: vertical;
+  height: 60px
+}
+
+.form {
+  width: 400px;
+  padding: 8px 15px;
+  border: solid 2px;
+  border-radius: 7px;
+  background: #f9fafb;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%)
+}
+
+.form h2 {
+  text-align: center;
+  font-size: 22px
+}
+
+.btn {
+  text-align: center;
+  border: 1px solid;
+  padding: .375rem .75rem;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px
+}
+
+.blue {
+  color: #fff;
+  background-color: #0d6efd
+}
+
+.blue:hover {
+  color: #fff;
+  background-color: #0b5ed7
+}
+
+.gray {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d
+}
+
+.gray:hover {
+  color: #fff;
+  background-color: #5c636a;
+  border-color: #565e64
 }

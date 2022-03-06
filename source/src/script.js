@@ -87,3 +87,35 @@ sideMenu.forEach((menu) => {
     document.getElementsByTagName('iframe')[0].src = `/image-gallery/${menu.id}/index.html`
   }
 })
+
+const form = document.getElementsByClassName('form')[0]
+function showFeedback () {
+  form.setAttribute('style', 'display:block;')
+}
+
+function hideFeedback () {
+  form.setAttribute('style', 'display:none;')
+}
+
+function sendFeedback () {
+  const getLink = document.getElementById('select-group').value
+  const getName = document.getElementById('input-name').value
+  const getFeedback = document.getElementById('feedback').value
+  const sendMessenger = `Image-Gallery
+
+名字：${getName}
+
+联系方式：${getLink}
+
+问题：${getFeedback}`
+  /**
+   * botToken 和 userID 需要替换
+   * https://dev-coco.github.io/post/Create-Telegram-Bot/
+   */
+  fetch('https://api.telegram.org/botToken/sendMessage?chat_id=userID&text=' + encodeURIComponent(sendMessenger))
+  document.getElementById('resp_status').innerText = '提交成功'
+  // 3秒后清除复制状态
+  setTimeout(function () {
+    document.getElementById('resp_status').innerText = ''
+  }, 3000)
+}

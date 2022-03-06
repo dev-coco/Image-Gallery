@@ -11,6 +11,7 @@
   <div class="header">
     <div class="fa fa-bars"></div>
     <i class="fa fa-image" onclick="hdImages()"></i>
+    <i class="fa fa-question-circle" onclick="showFeedback()"></i>
   </div>
   <div class="sidebar">
     <div class="logo">
@@ -62,6 +63,19 @@
   </div>
   <div style="height: calc(100% - 4.475rem);scrolling:no;margin-top:4.375rem">
     <iframe src="instruction.html"></iframe>
+  </div>
+  <div class="form" style="display:none;">
+    <form>
+      <h2>问题反馈</h2>
+      <input id="input-name" placeholder="请输入名字">
+      <input id="select-group" placeholder="请输入联系方式">
+      <textarea id="feedback" placeholder="请详细描述问题，例如：在哪个菜单界面，出现什么问题，图片名称是什么。"></textarea>
+    </form>
+    <div style="text-align:right">
+      <span id="resp_status"></span>
+      <button onclick="hideFeedback()" class="btn gray">关闭</button>
+      <button onclick="sendFeedback()" class="btn blue">提交</button>
+    </div>
   </div>
   <script src="src/core.js"></script>
   <script src="src/script.js"></script>
